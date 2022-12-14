@@ -1,0 +1,27 @@
+.fa-regular {
+  color: orange;
+  font-size: 50px;
+}
+.shop {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  padding: 20px 50px;
+  grid-gap: 20px;
+}
+.product-container {
+  background-color: rgb(236, 228, 217);
+  border-radius: 10px;
+}
+.cart-container {
+  background-color: rgb(200, 210, 230);
+  border-radius: 10px;
+}
+.card {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  border: none;
+  padding: 10px 50px;
+  background-color: rgb(236, 228, 217);
+}
