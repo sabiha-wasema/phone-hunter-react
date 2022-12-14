@@ -2,7 +2,7 @@ import React from "react";
 import "./Products.css";
 
 const Products = props => {
-  console.log(props);
+  //   console.log(props);
   const { slug, image, phone_name, brand } = props.product;
   const { handleProduct, product } = props;
   return (

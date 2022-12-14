@@ -1,10 +1,11 @@
 import "./Shop.css";
 import React, { useState, useEffect } from "react";
 import Product from "../Product/Products";
+import Cart from "../Cart/Cart";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [carts, setCarts] = useState([]);
   useEffect(() => {
     fetch(" https://openapi.programming-hero.com/api/phones?search=iphone")
       .then(res => res.json())
@@ -13,8 +14,23 @@ const Shop = () => {
 
   const handleProduct = product => {
     // console.log("clicked");
-    const newCart = [...cart, product];
-    setCart(newCart);
+    if (carts.length < 4) {
+      const newCart = [...carts, product];
+      setCarts(newCart);
+    } else {
+      alert("Cannot add more than 4 Product");
+    }
+  };
+
+  const randomProduct = () => {
+    if (carts.length > 0) {
+      const random = Math.floor(Math.random() * carts.length);
+      setCarts([carts[random]]);
+    }
+  };
+  let removeAll = carts => {
+    carts = [];
+    setCarts(carts);
   };
 
   return (
@@ -39,9 +55,28 @@ const Shop = () => {
           </div>
         </div>
         <div className="cart-container">
-          <h3 className="mt-4">
-            Cart section: {cart.length}
-          </h3>
+          <h4 className="mt-4">
+            Selected Products: {carts.length}
+          </h4>
+          <div>
+            {carts.map(cart => <Cart key={cart.slug} cart={cart} />)}
+          </div>
+          <div className="Choose">
+            <button
+              onClick={() => randomProduct()}
+              className="btn-choose px-4 py-2 text-success mt-4"
+            >
+              Suggest
+            </button>
+          </div>
+          <div>
+            <button
+              onClick={() => removeAll()}
+              className="btn-clear text-danger px-4 py-2 mt-3"
+            >
+              Clear
+            </button>
+          </div>
         </div>
       </div>
     </div>

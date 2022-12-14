@@ -1,0 +1,21 @@
+.cart-item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.cart-item img {
+  width: 65px;
+  height: 40px;
+  border-radius: 60%;
+  margin-right: 10px;
+}
+.cart-item h4 {
+  font-size: 15px;
+  margin-right: 5px;
+}
+.cart-item button {
+  background-color: rgb(200, 210, 230);
+}
+.fa-trash {
+  font-size: 25px;
+}
